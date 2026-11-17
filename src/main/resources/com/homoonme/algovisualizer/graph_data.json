@@ -1,0 +1,24 @@
+{
+  "type": "graph",
+  "nodes": [
+    {"id": "a", "x": 100, "y": 100},
+    {"id": "b", "x": 300, "y": 50},
+    {"id": "c", "x": 500, "y": 100},
+    {"id": "d", "x": 450, "y": 250},
+    {"id": "e", "x": 250, "y": 200},
+    {"id": "f", "x": 300, "y": 400},
+    {"id": "g", "x": 50, "y": 300}
+  ],
+  "edges": [
+    {"source": "a", "target": "b", "weight": 19},
+    {"source": "a", "target": "e", "weight": 14},
+    {"source": "a", "target": "g", "weight": 18},
+    {"source": "b", "target": "c", "weight": 5},
+    {"source": "b", "target": "e", "weight": 12},
+    {"source": "c", "target": "d", "weight": 3},
+    {"source": "d", "target": "e", "weight": 8},
+    {"source": "d", "target": "f", "weight": 21},
+    {"source": "e", "target": "g", "weight": 16},
+    {"source": "g", "target": "f", "weight": 27}
+  ]
+}

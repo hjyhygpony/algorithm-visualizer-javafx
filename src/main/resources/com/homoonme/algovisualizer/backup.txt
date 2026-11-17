@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.homoonme.algovisualizer.HelloController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="8.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <ToggleButton fx:id="addNodeToggle" mnemonicParsing="false" text="添加点" />
+                  <ToggleButton fx:id="addEdgeToggle" mnemonicParsing="false" text="添加边" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="129.0" spacing="10.0">
+               <children>
+                  <ComboBox fx:id="graphAlgoChooser" prefHeight="23.0" prefWidth="129.0" promptText="选图算法" />
+                  <Button fx:id="loadGraphButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLoadGraphClick" text="加载图" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="121.0" spacing="10.0">
+               <children>
+                  <ComboBox fx:id="sortAlgoChooser" prefHeight="23.0" prefWidth="119.0" promptText="选排序算法" />
+                  <Button fx:id="loadSortButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLoadSortClick" text="加载排序" textFill="#362323" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="159.0">
+               <children>
+                  <Button fx:id="nextStepButton" alignment="CENTER" mnemonicParsing="false" onAction="#onNextStepClick" text="下一步" textAlignment="CENTER" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="148.0" spacing="3.0">
+                     <children>
+                        <Button fx:id="autoPlayButton" mnemonicParsing="false" onAction="#onAutoPlayClick" prefHeight="19.0" prefWidth="67.0" text="自动播放" />
+                        <Slider fx:id="speedSlider" max="2.0" min="0.1" prefHeight="14.0" prefWidth="78.0" value="1.0" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="clearButton" mnemonicParsing="false" onAction="#onClearClick" text="清空画布" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="275.0" prefWidth="177.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="操作日志" />
+            <ListView fx:id="logListView" prefHeight="260.0" prefWidth="162.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </right>
+    <center>
+
+        <StackPane BorderPane.alignment="CENTER">
+
+            <children>
+
+                <Canvas fx:id="mainCanvas" height="500.0" width="750.0" />
+
+
+
+                <javafx.scene.layout.VBox fx:id="infoPanel" alignment="CENTER" maxWidth="700.0" minHeight="400.0" prefWidth="600.0"
+
+                                          style="-fx-background-color: rgba(255, 255, 255, 0.95); -fx-border-color: #333333; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 20;"
+
+                                          visible="false" onMouseClicked="#hideFloatingInfo">
+
+                    <children>
+
+                        <javafx.scene.control.Label fx:id="infoTitleLabel" text="算法名称" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+
+                        <javafx.scene.control.Separator prefWidth="200.0" style="-fx-padding: 5 0;"/>
+
+                        <javafx.scene.control.Label fx:id="infoContentLabel" text="[内容区域]" wrapText="true" alignment="CENTER"
+
+                                                    style="-fx-font-size: 14px; -fx-text-fill: #555555; -fx-padding: 10 0 0 0;" />
+
+                        <javafx.scene.control.Label text="[继续]" style="-fx-font-size: 10px; -fx-text-fill: #999999; -fx-padding: 15 0 0 0;" />
+
+                    </children>
+
+                </javafx.scene.layout.VBox>
+
+            </children>
+
+        </StackPane>
+
+    </center>
+</BorderPane>
